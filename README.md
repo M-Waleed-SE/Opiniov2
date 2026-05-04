@@ -56,6 +56,31 @@ The backend seeds a default admin user on startup if one does not exist:
 - Email: `admin@opinio.com`
 - Password: `adminpassword123`
 
+## Deployment / Hosting
+
+### Recommended hosting setup
+
+- Host the backend on a service such as Render, Railway, Fly, or Heroku.
+- Host the frontend on Vercel, Netlify, or the same service as the backend.
+
+### Backend deployment notes
+
+1. Copy `BACKEND/.env.example` to `BACKEND/.env`.
+2. Set `MONGO_URI` to your MongoDB Atlas connection string with no extra spaces before or after the value.
+3. Set `CORS_ORIGIN` to your deployed frontend URL, e.g. `https://your-app.vercel.app`.
+
+The backend now supports dynamic CORS origins and defaults to port `5000`.
+
+### Frontend deployment notes
+
+- Build the frontend with:
+  ```bash
+  cd CLIENT
+  npm install
+  npm run build
+  ```
+- If hosting statically, point the frontend to the deployed backend API base URL in `CLIENT/src/config/apiConfig.js`.
+
 ## Notes
 
 - Ensure your MongoDB Atlas URI is valid and accessible.
