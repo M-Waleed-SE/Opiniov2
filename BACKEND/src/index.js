@@ -15,10 +15,16 @@ import express from 'express'
 import cors from 'cors';
 
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 5000
+const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['http://localhost:5173']
 
 app.use(cors({
-  origin: 'http://localhost:5173', // frontend origin
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true)
+    }
+    callback(new Error('CORS policy: origin not allowed'))
+  },
   credentials: true
 }));
 
@@ -26,7 +32,7 @@ app.use(express.json());
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port} and ${process.env.PORT}`)
+  console.log(`Example app listening on port ${port}`)
 })
 
 import authRoutes from './routes/auth.routes.js';
