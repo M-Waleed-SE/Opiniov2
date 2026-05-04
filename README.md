@@ -82,6 +82,39 @@ The backend now supports dynamic CORS origins and defaults to port `5000`.
   ```
 - If hosting statically, set `VITE_API_URL` to your deployed backend URL in the frontend hosting environment.
 
+## Docker Deployment
+
+### Backend Docker Setup
+
+1. Build the Docker image:
+   ```bash
+   cd BACKEND
+   docker build -t opinio-backend .
+   ```
+
+2. Run the container with environment variables:
+   ```bash
+   docker run -p 5000:5000 \
+     -e MONGO_URI="your_mongo_connection_string" \
+     -e PORT=5000 \
+     -e CORS_ORIGIN="https://your-frontend-url" \
+     opinio-backend
+   ```
+
+### Using Docker Compose (for local development)
+
+1. Create a `.env` file in the root with your MongoDB URI.
+2. Run:
+   ```bash
+   docker-compose up --build
+   ```
+
+This starts the backend and a local MongoDB instance.
+
+### Railway Deployment with Docker
+
+Railway supports Docker. Push your code with the `Dockerfile` in `BACKEND/`, and set environment variables in Railway dashboard.
+
 ## Notes
 
 - Ensure your MongoDB Atlas URI is valid and accessible.
