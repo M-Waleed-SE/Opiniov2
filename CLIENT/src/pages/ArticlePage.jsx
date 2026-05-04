@@ -18,7 +18,7 @@ const getImageUrl = (imagePath) => {
   if (!imagePath) return "https://via.placeholder.com/800x400?text=No+Image"; // Fallback image
   return imagePath.startsWith("http")
     ? imagePath
-    : `http://localhost:8000/${imagePath}`; // Convert relative path to full URL
+    : `https://opiniov2-production.up.railway.app/${imagePath}`; // Convert relative path to full URL
 };
 
 const ArticlePage = () => {
@@ -37,7 +37,7 @@ const ArticlePage = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:8000/api/articles/${id}`
+          `https://opiniov2-production.up.railway.app/api/articles/${id}`
         ); // Fetch article data
         setArticle(response.data);
         setError(null);
@@ -63,7 +63,7 @@ const ArticlePage = () => {
   const handleToggleFeature = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/admin/articles/${id}/feature`,
+        `https://opiniov2-production.up.railway.app/api/admin/articles/${id}/feature`,
         { featured: !article.featured },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
@@ -77,7 +77,7 @@ const ArticlePage = () => {
   const handleDeleteArticle = async () => {
     if (window.confirm("Are you sure you want to delete this article?")) {
       try {
-        await axios.delete(`http://localhost:8000/api/admin/articles/${id}`, {
+        await axios.delete(`https://opiniov2-production.up.railway.app/api/admin/articles/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         alert("Article deleted successfully");

@@ -24,7 +24,7 @@ const Home = ({ category, searchQuery }) => {
     setLoading(true);
     
     try {
-      let url = `http://localhost:8000/api/articles?page=${pageNum}&limit=6`;
+      let url = `https://opiniov2-production.up.railway.app/api/articles?page=${pageNum}&limit=6`;
       
       if (searchQuery) {
         url += `&search=${encodeURIComponent(searchQuery)}`;

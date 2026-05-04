@@ -21,7 +21,7 @@ const BasedOnCategory = () => {
       setVisibleCount(6); // Reset visible count on category change
 
       try {
-        const res = await axios.get(`http://localhost:8000/api/articles?category=${formattedCategory}`);
+        const res = await axios.get(`https://opiniov2-production.up.railway.app/api/articles?category=${formattedCategory}`);
         setArticles(res.data.articles || []);
       } catch (err) {
         console.error(`Error fetching articles for category "${formattedCategory}":`, err);

@@ -62,7 +62,7 @@ const WritePage = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/api/newBlog",
+        "https://opiniov2-production.up.railway.app/api/newBlog",
         blogData,
         {
           headers: {

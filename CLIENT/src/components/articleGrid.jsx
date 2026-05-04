@@ -14,8 +14,8 @@ const ArticleGrid = ({ category }) => {
     
     // If category is provided, fetch articles for that category
     const apiUrl = category 
-      ? `http://localhost:8000/api/posts/category/${category}`
-      : 'http://localhost:8000/api/posts';
+      ? `https://opiniov2-production.up.railway.app/api/posts/category/${category}`
+      : 'https://opiniov2-production.up.railway.app/api/posts';
       
     axios
       .get(apiUrl)

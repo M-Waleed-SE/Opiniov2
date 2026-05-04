@@ -29,7 +29,7 @@ const SettingsPage = () => {
       setError(null);
 
       const response = await axios.post(
-        "http://localhost:8000/api/articles/user-by-email",
+        "https://opiniov2-production.up.railway.app/api/articles/user-by-email",
         { email: user.email },
         {
           headers: {
@@ -74,7 +74,7 @@ const SettingsPage = () => {
       setDeletingId(article._id);
 
       const response = await axios.delete(
-        `http://localhost:8000/api/articles/${article._id}`,
+        `https://opiniov2-production.up.railway.app/api/articles/${article._id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

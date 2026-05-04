@@ -3,7 +3,7 @@
  * All API endpoints and base URLs are defined here for easier maintenance
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://opiniov2-production.up.railway.app';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://opiniov2-production.up.railway.app';
 
 const API_ENDPOINTS = {
   // Auth endpoints

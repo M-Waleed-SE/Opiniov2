@@ -15,7 +15,7 @@ const PostSlider = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:8000/api/featured-posts");
+        const res = await axios.get("https://opiniov2-production.up.railway.app/api/featured-posts");
         // The API already returns only featured posts, so no need to filter
         setPosts(res.data);
       } catch (err) {

@@ -26,12 +26,12 @@ const AdminDashboard = () => {
     setLoading(true);
     try {
       if (activeTab === 'users') {
-        const response = await axios.get('http://localhost:8000/api/admin/users', {
+        const response = await axios.get('https://opiniov2-production.up.railway.app/api/admin/users', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setUsers(response.data);
       } else {
-        const response = await axios.get('http://localhost:8000/api/admin/articles', {
+        const response = await axios.get('https://opiniov2-production.up.railway.app/api/admin/articles', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setArticles(response.data);
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
 
   const handleToggleBlock = async (userId, currentStatus) => {
     try {
-      await axios.put(`http://localhost:8000/api/admin/users/${userId}/block`, {
+      await axios.put(`https://opiniov2-production.up.railway.app/api/admin/users/${userId}/block`, {
         block: !currentStatus
       }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
       fetchData();
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
 
   const handleToggleFeature = async (articleId, currentStatus) => {
     try {
-      await axios.put(`http://localhost:8000/api/admin/articles/${articleId}/feature`, {
+      await axios.put(`https://opiniov2-production.up.railway.app/api/admin/articles/${articleId}/feature`, {
         featured: !currentStatus
       }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
       fetchData();
@@ -69,7 +69,7 @@ const AdminDashboard = () => {
   const handleDeleteArticle = async (articleId) => {
     if (window.confirm("Are you sure you want to delete this article?")) {
       try {
-        await axios.delete(`http://localhost:8000/api/admin/articles/${articleId}`, {
+        await axios.delete(`https://opiniov2-production.up.railway.app/api/admin/articles/${articleId}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         fetchData();

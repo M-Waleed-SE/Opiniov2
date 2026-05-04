@@ -8,7 +8,7 @@ export const loginUser = (credentials) => async (dispatch) => {
     
     // Check if it's the admin logging in
     const endpoint = credentials.email === 'admin@opinio.com' ? '/api/admin/login' : '/api/login';
-    const response = await axios.post(`http://localhost:8000${endpoint}`, credentials);
+    const response = await axios.post(`https://opiniov2-production.up.railway.app${endpoint}`, credentials);
 
     if (response.data.token) {
       const user = response.data.user || response.data.admin;
@@ -36,7 +36,7 @@ export const registerUser = (userData) => async (dispatch) => {
     dispatch(registerStart());
 
     // Replace with your actual API endpoint
-    const response = await axios.post('http://localhost:8000/api/register', userData);
+    const response = await axios.post('https://opiniov2-production.up.railway.app/api/register', userData);
 
     const { user, token } = response.data;
 
