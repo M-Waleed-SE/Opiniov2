@@ -25,6 +25,9 @@ jobs:
         run: |
           cd CLIENT
           npm run build
+          cp dist/index.html dist/404.html
+        env:
+          VITE_API_URL: https://opiniov2-production.up.railway.app
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
