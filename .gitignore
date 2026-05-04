@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+BACKEND/node_modules/
+CLIENT/node_modules/
+
+# Environment files
+.env
+BACKEND/.env
+CLIENT/.env
+
+# Build output
+CLIENT/dist/
+
+# Upload storage
+uploads/
+
+# OS files
+.DS_Store
+Thumbs.db

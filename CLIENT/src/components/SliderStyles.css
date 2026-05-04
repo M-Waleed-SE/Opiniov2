@@ -1,0 +1,57 @@
+/* Custom styling for the slider arrows */
+.custom-slider .slick-prev,
+.custom-slider .slick-next {
+  width: 40px;
+  height: 40px;
+  background-color: #92400e; /* indigo-600 dark:text-indigo-400 */
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.custom-slider .slick-prev {
+  left: -5px;
+}
+
+.custom-slider .slick-next {
+  right: -5px;
+}
+
+.custom-slider .slick-prev:hover,
+.custom-slider .slick-next:hover {
+  background-color: #78350f; /* amber-900 */
+}
+
+.custom-slider .slick-prev:before,
+.custom-slider .slick-next:before {
+  font-size: 24px;
+  opacity: 1;
+}
+
+/* Style the dots */
+.custom-slider .slick-dots li button:before {
+  font-size: 12px;
+  color: #92400e; /* indigo-600 dark:text-indigo-400 */
+}
+
+.custom-slider .slick-dots li.slick-active button:before {
+  color: #78350f; /* amber-900 */
+}
+
+/* Make sure arrows are always visible */
+.custom-slider .slick-arrow {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Add box shadow for better visibility */
+.custom-slider .slick-prev,
+.custom-slider .slick-next {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.custom-slider .slick-prev:hover,
+.custom-slider .slick-next:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
