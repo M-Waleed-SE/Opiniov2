@@ -68,6 +68,7 @@ The backend seeds a default admin user on startup if one does not exist:
 1. Copy `BACKEND/.env.example` to `BACKEND/.env`.
 2. Set `MONGO_URI` to your MongoDB Atlas connection string with no extra spaces before or after the value.
 3. Set `CORS_ORIGIN` to your deployed frontend URL, e.g. `https://your-app.vercel.app`.
+4. For frontend deployment, configure `VITE_API_URL` as the backend URL in your frontend host.
 
 The backend now supports dynamic CORS origins and defaults to port `5000`.
 
@@ -79,7 +80,7 @@ The backend now supports dynamic CORS origins and defaults to port `5000`.
   npm install
   npm run build
   ```
-- If hosting statically, point the frontend to the deployed backend API base URL in `CLIENT/src/config/apiConfig.js`.
+- If hosting statically, set `VITE_API_URL` to your deployed backend URL in the frontend hosting environment.
 
 ## Notes
 
