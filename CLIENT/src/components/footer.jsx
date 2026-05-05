@@ -23,6 +23,7 @@ const Footer = () => {
               Exploring ideas that matter through thoughtful discourse and analysis.
               Join our community of curious minds.
             </p>
+            {/* Social Links */}
             <div className="flex space-x-3 sm:space-x-4">
               <a href="https://github.com/M-Waleed-SE" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
                 <FaGithub size={16} className="sm:text-lg md:text-xl" />
