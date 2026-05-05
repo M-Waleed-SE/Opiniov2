@@ -16,14 +16,21 @@ import cors from 'cors';
 
 const app = express()
 const port = process.env.PORT || 5000
-const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['http://localhost:5173']
+const allowedOrigins = process.env.CORS_ORIGIN 
+  ? process.env.CORS_ORIGIN.split(',').map(o => o.trim().toLowerCase()) 
+  : ['http://localhost:5173'];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true)
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin.toLowerCase())) {
+      return callback(null, true);
+    } else {
+      console.log('Blocked by CORS. Origin:', origin);
+      return callback(new Error(`CORS policy: origin ${origin} not allowed`));
     }
-    callback(new Error('CORS policy: origin not allowed'))
   },
   credentials: true
 }));
