@@ -12,6 +12,7 @@ const EditArticle = () => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -66,6 +67,7 @@ const EditArticle = () => {
         setHeading(data.heading || '');
         setContent(data.content || '');
         setCategory(data.category || '');
+        setImageUrl(data.image || '');
       } catch (err) {
         setError(err.message);
         console.error('Error fetching article:', err);
@@ -101,6 +103,7 @@ const EditArticle = () => {
           heading,
           content,
           category,
+          image: imageUrl,
         }),
       });
       
@@ -221,6 +224,20 @@ const EditArticle = () => {
                   </option>
                 ))}
               </select>
+            </div>
+            
+            <div className="mb-6">
+              <label htmlFor="imageUrl" className="block text-[#073642] dark:text-[#bd93f9] font-medium mb-2">
+                Image URL
+              </label>
+              <input
+                type="url"
+                id="imageUrl"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+                className="w-full px-4 py-3 border border-[#b58900] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#268bd2] dark:focus:ring-[#bd93f9] focus:border-transparent dark:bg-[#21222c] dark:text-[#f8f8f2] text-[#073642] bg-[#fdf6e3] dark:border-[#6272a4]"
+                placeholder="https://example.com/image.jpg"
+              />
             </div>
 
             <div className="mb-8">
