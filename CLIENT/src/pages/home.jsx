@@ -32,10 +32,13 @@ const Home = ({ category, searchQuery }) => {
         url += `&category=${encodeURIComponent(category)}`;
       }
 
+      const token = localStorage.getItem('token');
       const response = await axios.get(url, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+        ...(token && {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
       });
 
       const newArticles = response.data.articles || [];
