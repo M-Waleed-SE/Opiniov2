@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   const handleSubscribe = (e) => {
@@ -24,16 +24,10 @@ const Footer = () => {
               Join our community of curious minds.
             </p>
             <div className="flex space-x-3 sm:space-x-4">
-              <a href="#" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
-                <FaFacebook size={16} className="sm:text-lg md:text-xl" />
+              <a href="https://github.com/M-Waleed-SE" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
+                <FaGithub size={16} className="sm:text-lg md:text-xl" />
               </a>
-              <a href="#" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
-                <FaTwitter size={16} className="sm:text-lg md:text-xl" />
-              </a>
-              <a href="#" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
-                <FaInstagram size={16} className="sm:text-lg md:text-xl" />
-              </a>
-              <a href="#" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
+              <a href="https://www.linkedin.com/in/m-waleed-se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-100 dark:text-[#f8f8f2] dark:hover:text-[#50fa7b] transition-colors">
                 <FaLinkedin size={16} className="sm:text-lg md:text-xl" />
               </a>
             </div>
