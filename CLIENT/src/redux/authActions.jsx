@@ -1,5 +1,6 @@
 import { loginStart, loginSuccess, loginFailure, logout, registerStart, registerSuccess, registerFailure } from './authSlice';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/apiConfig';
 
 // Async action for login
 export const loginUser = (credentials) => async (dispatch) => {
@@ -8,7 +9,7 @@ export const loginUser = (credentials) => async (dispatch) => {
     
     // Check if it's the admin logging in
     const endpoint = credentials.email === 'admin@opinio.com' ? '/api/admin/login' : '/api/login';
-    const response = await axios.post(`https://opiniov2-production.up.railway.app${endpoint}`, credentials);
+    const response = await axios.post(`${API_BASE_URL}${endpoint}`, credentials);
 
     if (response.data.token) {
       const user = response.data.user || response.data.admin;
@@ -36,7 +37,7 @@ export const registerUser = (userData) => async (dispatch) => {
     dispatch(registerStart());
 
     // Replace with your actual API endpoint
-    const response = await axios.post('https://opiniov2-production.up.railway.app/api/register', userData);
+    const response = await axios.post(`${API_BASE_URL}/api/register`, userData);
 
     const { user, token } = response.data;
 
