@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PostSlider from '../components/slider';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/apiConfig';
 
 const Home = ({ category, searchQuery }) => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Home = ({ category, searchQuery }) => {
     setLoading(true);
     
     try {
-      let url = `https://opiniov2-production.up.railway.app/api/articles?page=${pageNum}&limit=6`;
+      let url = `${API_BASE_URL}/api/articles?page=${pageNum}&limit=6`;
       
       if (searchQuery) {
         url += `&search=${encodeURIComponent(searchQuery)}`;
