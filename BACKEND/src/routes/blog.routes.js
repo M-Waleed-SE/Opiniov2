@@ -137,11 +137,12 @@ router.put("/articles/:id", verifyJWT, async (req, res) => {
         return res.status(403).json({ message: "Unauthorized to update this article" });
     }
 
-    const { heading, content, category } = req.body;
-
+    const { heading, content, category, image } = req.body;
+    
     if (heading !== undefined) article.heading = heading;
     if (content !== undefined) article.content = content;
     if (category !== undefined) article.category = category;
+    if (image !== undefined) article.image = image;
 
     await article.save();
 
